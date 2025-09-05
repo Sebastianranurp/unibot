@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unibot</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* dacă ai deja style.css, poți șterge acest block */
+    body{margin:0;background:#0b0f18;color:#e6ecff;font:16px/1.4 ui-sans-serif,system-ui,Segoe UI,Roboto}
+    header{display:flex;gap:12px;align-items:center;justify-content:center;padding:28px 16px}
+    header h1{font-size:40px;font-weight:800;margin:0 12px 0 0}
+    .btn{background:#12203a;border:1px solid #22304d;color:#e6ecff;padding:8px 14px;border-radius:10px;cursor:pointer}
+    .btn:hover{background:#162649}
+    #status,#presence{font-size:14px;opacity:.7}
+    #log{white-space:pre; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background:#0f1624;
+         border:1px solid #1f2a44;border-radius:12px;margin:0 auto;max-width:980px;padding:16px;height:148px;overflow:auto}
+    .stage{display:grid;place-items:center;padding:30px 0 80px}
+    #orb{width:540px;height:540px;border-radius:50%;background:radial-gradient( circle at 55% 40%, #6f6bff, #4328a0 40%, #120b2b 75% ); filter: drop-shadow(0 0 90px rgba(111,107,255,.25)); transition: transform .2s ease}
+    #orb.talking{transform: scale(1.03)}
+    footer{position:fixed;left:0;right:0;bottom:10px;text-align:center;font-size:12px;opacity:.7}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Unibot</h1>
+    <button id="start" class="btn">Start Unibot</button>
+    <button id="fs" class="btn">Fullscreen</button>
+    <span id="status">ready</span>
+    <span id="presence" style="margin-left:8px;opacity:.7"></span>
+  </header>
+
+  <div id="log"></div>
+
+  <section class="stage">
+    <div id="orb" aria-hidden="true"></div>
+  </section>
+
+  <footer>
+    Sfat: apasă <b>F</b> pentru fullscreen. Permite microfonul când browserul întreabă.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

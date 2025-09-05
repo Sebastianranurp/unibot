@@ -1,0 +1,80 @@
+:root {
+  --bg: #0b0d12;
+  --panel: #0f1420;
+  --text: #dfe6f3;
+  --muted: #8fa3c4;
+  --accent: #7a5cff;
+  --ok: #38d39f;
+  --err: #ff5c7a;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 800px at 70% 60%, #11152a 0%, #0b0d12 60%, #090b10 100%);
+  color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+  padding: 28px clamp(16px, 4vw, 48px);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+h1 { margin: 0; font-weight: 800; letter-spacing: .5px; }
+
+.toolbar { display: flex; gap: 10px; align-items: center; }
+button {
+  background: #12192a;
+  color: var(--text);
+  border: 1px solid #222a3c;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button:hover { border-color: #2b3650; }
+#state { margin-left: 8px; color: var(--muted); }
+
+#log {
+  background: rgba(10, 14, 22, .7);
+  border: 1px solid #1b2234;
+  border-radius: 14px;
+  max-width: 1100px;
+  height: 160px;
+  padding: 14px;
+  overflow: auto;
+  backdrop-filter: blur(6px);
+  white-space: pre-wrap;
+}
+
+#orb {
+  width: min(58vw, 680px);
+  aspect-ratio: 1/1;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: radial-gradient(120px 120px at 40% 30%, #6ea1ff 0%, #8b63ff 18%, #4a25b0 45%, #1b1640 80%);
+  box-shadow:
+    0 0 140px 40px rgba(120, 85, 255, .25),
+    inset 0 0 120px rgba(0,0,0,.35);
+  animation: breathe 4.5s ease-in-out infinite;
+  transition: filter .25s ease, transform .25s ease;
+}
+#orb.listening { filter: drop-shadow(0 0 30px rgba(80, 180, 255, .4)); }
+#orb.speaking  { filter: drop-shadow(0 0 40px rgba(255, 120, 240, .45)); transform: scale(1.02); }
+#orb.idle      { filter: none; }
+
+footer { opacity: .7; color: var(--muted); }
+kbd {
+  background: #151a28; border: 1px solid #25304b; border-radius: 6px;
+  padding: 2px 6px; color: #cfe1ff;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
